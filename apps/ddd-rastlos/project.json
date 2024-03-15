@@ -1,0 +1,24 @@
+{
+  "name": "ddd-rastlos",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ddd-rastlos/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ddd-rastlos:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ddd-rastlos:build:development"
+        },
+        "production": {
+          "buildTarget": "ddd-rastlos:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
