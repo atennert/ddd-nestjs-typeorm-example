@@ -1,0 +1,24 @@
+{
+  "name": "ddd-auction-admin",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ddd-auction-admin/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ddd-auction-admin:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ddd-auction-admin:build:development"
+        },
+        "production": {
+          "buildTarget": "ddd-auction-admin:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,12 @@
+{{#> main}}
+  {{#*inline "body"}}
+    <h2>BikePool for auction</h2>
+    <ul>
+    {{#each bikes as | bike |}}
+      <li><a href="/bike/{{bike.globalId}}">{{bike.name}}</a></li>
+    {{else}}
+      <li>No bikes available at this time ... come back later :)</li>
+    {{/each}}
+    </ul>
+  {{/inline}}
+{{/main}}

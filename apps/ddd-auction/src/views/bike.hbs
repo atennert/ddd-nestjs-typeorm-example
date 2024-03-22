@@ -1,0 +1,28 @@
+{{#> main}}
+  {{#*inline "body"}}
+    {{#if message}}
+      <p style="color: green; background-color: palegreen">{{message}}</p>
+    {{/if}}
+    {{#if warning}}
+      <p style="color: darkred; background-color: #faa">{{warning}}</p>
+    {{/if}}
+    {{#if bike}}
+      <h2>Bike: {{bike.name}}</h2>
+      <section>
+        <h3>Description</h3>
+        <p>Color: {{bike.color}}</p>
+        <p>Type: {{bike.type}}</p>
+      </section>
+
+      <section>
+        <h3>Place your bid</h3>
+        <form method="post">
+          <label>Amount: <input type="number" min="1"></label>
+          <button type="submit">Place bid</button>
+        </form>
+      </section>
+    {{else}}
+      <p>This bike is not available anymore.</p>
+    {{/if}}
+  {{/inline}}
+{{/main}}

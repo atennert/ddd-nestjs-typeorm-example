@@ -1,0 +1,17 @@
+[mysqld]
+character-set-server=utf8mb4
+collation-server=utf8mb4_general_ci
+init-connect='SET NAMES utf8mb4 COLLATE utf8mb4_general_ci'
+
+# we can't use NO_AUTO_VALUE_ON_ZERO, because TypeORM uses DEFAULT (0) when creating PrimaryGeneratedColumns which will we ignored by AUTO_INCREMENT
+sql_mode=STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,ONLY_FULL_GROUP_BY
+
+innodb=FORCE
+innodb_strict_mode=1
+innodb_autoinc_lock_mode=2
+# sort_buffer_size = 16M
+# innodb_buffer_pool_size = 16G
+# key_buffer_size = 0
+
+[client]
+default-character-set=utf8mb4

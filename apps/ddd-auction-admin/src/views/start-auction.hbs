@@ -1,0 +1,16 @@
+{{#> main}}
+  {{#*inline "body"}}
+    <h2>Start auction</h2>
+    {{#if message}}
+      <p style="color: green; background-color: palegreen">{{message}}</p>
+    {{/if}}
+    <form method="post">
+      <label>Auction <select name="auctionId">
+        {{#each auctions as | auction |}}
+          <option value="{{auction.id}}">{{auction.name}}</option>
+        {{/each}}
+      </select></label>
+      <button type="submit">Create auction</button>
+    </form>
+  {{/inline}}
+{{/main}}

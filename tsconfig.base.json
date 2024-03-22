@@ -8,13 +8,16 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2017",
     "module": "esnext",
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ddd-auction/dtos": ["libs/dtos/src/index.ts"],
+      "@ddd-auction/events": ["libs/events/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

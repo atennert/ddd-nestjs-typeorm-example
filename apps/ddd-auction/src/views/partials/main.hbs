@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>App</title>
+  <style>
+    html {
+      font-size: 16px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    {{>header}}
+    {{>navigation}}
+  </header>
+  <main>
+    {{> body}}
+  </main>
+</body>
+</html>

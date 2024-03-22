@@ -1,0 +1,9 @@
+
+### test random event
+POST http://localhost:3001/message
+Content-Type: application/json
+
+{
+  "id": "test-event",
+  "occurredAt": ""
+}

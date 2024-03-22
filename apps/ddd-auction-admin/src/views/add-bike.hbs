@@ -1,0 +1,19 @@
+{{#> main}}
+  {{#*inline "body"}}
+    <h2>Add bike to auction</h2>
+    {{#if message}}
+      <p style="color: green; background-color: palegreen">{{message}}</p>
+    {{/if}}
+    <form method="post">
+      <label>Name <input type="text" name="name" placeholder="my bike" required></label>
+      <label>Type <input type="text" name="type" placeholder="type" required></label>
+      <label>Color <input type="text" name="color" placeholder="color" required></label>
+      <label>Auction <select name="auctionId">
+        {{#each auctions as | auction |}}
+          <option value="{{auction.id}}">{{auction.name}}</option>
+        {{/each}}
+      </select></label>
+      <button type="submit">Add bike</button>
+    </form>
+  {{/inline}}
+{{/main}}

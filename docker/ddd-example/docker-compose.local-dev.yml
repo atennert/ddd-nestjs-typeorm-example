@@ -1,0 +1,84 @@
+version: "3.4"
+
+services:
+#  ddd-auction:
+#    image: node:18.16.0
+#    working_dir: /app
+#    environment:
+#      - DB_USER=root
+#      - DB_PASSWORD=password
+#      - DB_HOST=database
+#      - DB_PORT=3306
+#
+#      - PLATFORM_DB=ddd-auction
+#      # issue https://github.com/nrwl/nx/issues/15452
+#      - NX_NON_NATIVE_HASHER=true
+#      - MAX_CLUSTER_SIZE=1
+#    volumes:
+#      - ../..:/app
+#    command: bash -c "npx nx run ddd-auction:serve"
+#    networks:
+#      - local-dev-net
+#    expose:
+#      - "3000"
+#    ports:
+#      - 3000:3000
+#    depends_on:
+#      - database
+#
+#  ddd-auction-admin:
+#    image: node:18.16.0
+#    working_dir: /app
+#    volumes:
+#      - ../..:/app
+#    command: bash -c "npx nx run ddd-auction-admin:serve"
+#    networks:
+#      - local-dev-net
+#    expose:
+#      - "3001"
+#    ports:
+#      - 3001:3001
+#    environment:
+#      - DB_USER=root
+#      - DB_PASSWORD=password
+#      - DB_HOST=database
+#      - DB_PORT=3306
+#
+#      - ADMIN_DB=ddd-auction-admin
+#      # issue https://github.com/nrwl/nx/issues/15452
+#      - NX_NON_NATIVE_HASHER=true
+#    depends_on:
+#      - database
+
+  database:
+    image: bitnami/mariadb:10.6.7-debian-10-r17
+    tty: true
+    environment:
+      MARIADB_ROOT_PASSWORD: "password"
+      MARIADB_ROOT_USER: "root"
+      MARIADB_PORT_NUMBER: 3306
+      MYSQL_TCP_PORT: 3306
+      MYSQL_UNIX_PORT: 3306
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    networks:
+      - local-dev-net
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./custom.cnf:/opt/bitnami/mariadb/conf/my_custom.cnf
+      - ./init-databases.sql:/docker-entrypoint-initdb.d/init-databases.sql
+    deploy:
+      resources:
+        limits:
+          cpus: ".5"
+          memory: "500mb"
+
+networks:
+  local-dev-net:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

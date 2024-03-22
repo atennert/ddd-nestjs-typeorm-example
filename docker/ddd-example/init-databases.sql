@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS `ddd-auction`;
+CREATE DATABASE IF NOT EXISTS `ddd-auction-admin`;
